@@ -17,4 +17,5 @@ class AuthorizationInterceptor(private val store: Store) : Interceptor {
             .build()
         return chain.proceed(request)
     }
+
 }

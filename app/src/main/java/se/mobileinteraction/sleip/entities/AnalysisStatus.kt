@@ -1,5 +1,5 @@
 package se.mobileinteraction.sleip.entities
 
-enum class RecordingStatus {
+enum class AnalysisStatus {
     pending, complete
 }

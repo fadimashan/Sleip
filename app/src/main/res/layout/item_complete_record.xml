@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/container"
@@ -22,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/uploaded_date"
-        android:textSize="14sp"
+        android:textSize="12sp"
         android:paddingStart="12dp"
         app:layout_constraintBottom_toBottomOf="@id/container"
         app:layout_constraintLeft_toLeftOf="@id/record_name"
@@ -30,12 +31,12 @@
 
 
     <ImageView
-        android:id="@+id/forward_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_black_arrow_forward_ios_24"
-        app:layout_constraintBottom_toBottomOf="@id/container"
-        app:layout_constraintRight_toRightOf="@id/container"
-        app:layout_constraintTop_toTopOf="@id/container"/>
+        android:paddingRight="30dp"
+        android:src="@drawable/ic_baseline_check_blue_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

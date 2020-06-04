@@ -9,9 +9,10 @@ import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_login.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import se.mobileinteraction.sleip.R
+import se.mobileinteraction.sleip.data.Store
 
 
-class LoginFragment(): Fragment(R.layout.fragment_login) {
+class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private val viewModel by viewModel<LoginViewModel>()
 
@@ -49,6 +50,8 @@ class LoginFragment(): Fragment(R.layout.fragment_login) {
     private fun observeData() {
         viewModel.stateEmitter.observe(viewLifecycleOwner, Observer {
            if (it.defaultResponse?.token != null) {
+//               if (viewModel.currentToken != null ){
+//               viewModel.registerNewDevice(viewModel.currentToken!!.registration_id)}
                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToNavHostFragment())
            }else{
                Toast.makeText(requireContext(), "Email or Password incorrect!", Toast.LENGTH_SHORT).show()

@@ -1,6 +1,7 @@
 package se.mobileinteraction.sleip.di
 
 import androidx.preference.PreferenceManager
+import com.google.android.exoplayer2.util.Log
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.squareup.moshi.Moshi
 import kotlinx.serialization.UnstableDefault
@@ -17,19 +18,19 @@ import org.koin.dsl.module
 import retrofit2.CallAdapter
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import se.mobileinteraction.sleip.BuildConfig
 import se.mobileinteraction.sleip.MainActivityViewModel
 import se.mobileinteraction.sleip.R
+import se.mobileinteraction.sleip.data.AuthorizationInterceptor
 import se.mobileinteraction.sleip.data.SleipRepository
 import se.mobileinteraction.sleip.data.Store
-import se.mobileinteraction.sleip.data.AuthorizationInterceptor
 import se.mobileinteraction.sleip.data.api.SleipAPI
 import se.mobileinteraction.sleip.entities.Horse
 import se.mobileinteraction.sleip.ui.details.DetailsPageViewModel
-import se.mobileinteraction.sleip.ui.splash.SplashViewModel
 import se.mobileinteraction.sleip.ui.login.LoginViewModel
 import se.mobileinteraction.sleip.ui.mainFragment.MainHorsesListViewModel
 import se.mobileinteraction.sleip.ui.newHorse.CreateHorseViewModel
+import se.mobileinteraction.sleip.ui.records.AddingNewVideoRecordingViewModel
+import se.mobileinteraction.sleip.ui.splash.SplashViewModel
 import se.mobileinteraction.sleip.util.GlideImageLoader
 
 
@@ -40,11 +41,26 @@ val appModule = module {
     single {
         val clientBuilder = OkHttpClient.Builder()
             .addInterceptor(AuthorizationInterceptor(get()))
+            //todo work manager api for upload file
 
-        if (BuildConfig.DEBUG) clientBuilder.addInterceptor(HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.HEADERS
-            level = HttpLoggingInterceptor.Level.BODY
-        })
+        val httpInterceptor = HttpLoggingInterceptor()
+        clientBuilder.addInterceptor(httpInterceptor)
+        clientBuilder.addInterceptor { chain ->
+            val request = chain.request()
+            val logLevel = if (request.url.toString().contains("/recording/")) {
+                HttpLoggingInterceptor.Level.NONE
+            } else {
+                HttpLoggingInterceptor.Level.BODY
+            }
+            Log.d("Log Level is: Level.NONE",request.url.toString().contains("/recording/").toString())
+            clientBuilder.interceptors().forEach {
+                if(it is HttpLoggingInterceptor){
+                    it.level = logLevel
+
+                }
+            }
+            chain.proceed(request)
+        }
 
 
         Retrofit.Builder()
@@ -62,6 +78,7 @@ val appModule = module {
     single {
         val retrofit: Retrofit = get()
         retrofit.create(SleipAPI::class.java)
+
     }
 
     single {
@@ -80,9 +97,10 @@ val appModule = module {
 
     single { Moshi.Builder().build() }
     viewModel { LoginViewModel(get()) }
-    viewModel { MainActivityViewModel(androidContext(), get()) }
+    viewModel { MainActivityViewModel(androidContext(), get(),get()) }
     viewModel { SplashViewModel(get()) }
-    viewModel { MainHorsesListViewModel(get()) }
+    viewModel { MainHorsesListViewModel(get(),get()) }
     viewModel { CreateHorseViewModel(get(), get()) }
-    viewModel { (horse : Horse ) -> DetailsPageViewModel(get(), horse) }
+    viewModel { AddingNewVideoRecordingViewModel(get()) }
+    viewModel { (horse: Horse) -> DetailsPageViewModel(get(), horse) }
 }

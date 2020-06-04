@@ -36,7 +36,31 @@
     <string name="description">Description</string>
     <string name="horse">Horse name</string>
     <string name="back">Back</string>
-    <string name="my_recording">My Recording</string>
+    <string name="my_recording">My Record</string>
     <string name="uploaded_date">Uploaded Date</string>
     <string name="create_recording">Create Recording</string>
+    <string name="title_activity_better_video_player">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="my_comment">My Comment</string>
+    <string name="status">Status</string>
+    <string name="new_recording">New Recording</string>
+    <string name="add_title">Add Title</string>
+    <string name="add_comment">Add Comment</string>
+    <string name="awaiting_results">Awaiting Results</string>
+    <string name="video">Video</string>
+    <string name="graphs">Graphs</string>
+    <string name="comment">Comment</string>
+
+
+    <string name="notification_channel_id" translatable="false">fcm_this_is_my_default_channel</string>
+    <string name="default_notification_channel_id" translatable="false">my_default_channel</string>
+    <string name="notification_channel_description" translatable="false">notification_channel_description</string>
+    <string name="notification_channel_name" translatable="false">Sleip_channel_name</string>
+    <string name="default_notification_channel_name" translatable="false">default_Sleip_channel_name</string>
+    <string name="u_have_result">New result!</string>
+    <string name="snooze">Snooze</string>
+    <string name="msg_token_fmt">token is:</string>
+
+
 </resources>

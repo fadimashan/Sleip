@@ -61,14 +61,16 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TextView
         android:id="@+id/back_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="18dp"
+        android:paddingTop="16dp"
+        android:paddingLeft="48dp"
         android:text="@string/back"
         android:textColor="#FDFDFD"
-        app:layout_constraintLeft_toRightOf="@+id/back"
+        app:layout_constraintLeft_toLeftOf="@+id/back"
         app:layout_constraintTop_toTopOf="@+id/back"
         app:layout_constraintBottom_toBottomOf="@+id/back"/>
 
@@ -76,13 +78,11 @@
         android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="18dp"
-        android:paddingLeft="18dp"
+        android:paddingTop="16dp"
+        android:paddingLeft="24dp"
         android:src="@drawable/ic_baseline_arrow_white_ios_24"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/back_btn"/>
-
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/h_birth"
@@ -108,7 +108,7 @@
         android:maxLines="1"
         android:text="description"
         android:textColor="#FFFEFE"
-        app:layout_constraintBottom_toBottomOf="@id/detail_photo"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintLeft_toLeftOf="@+id/profile_view"
         />
 
@@ -135,6 +135,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/profile_view"
         app:layout_constraintVertical_bias="0.0" />
+
 
     <ImageView
         android:id="@+id/rec_video"

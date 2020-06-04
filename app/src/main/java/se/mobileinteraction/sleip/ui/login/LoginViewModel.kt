@@ -1,6 +1,7 @@
 package se.mobileinteraction.sleip.ui.login
 
 import android.annotation.SuppressLint
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,7 +14,7 @@ class LoginViewModel(private val loginRepository: SleipRepository) : ViewModel()
 
     private val _stateEmitter: MutableLiveData<State> = MutableLiveData()
     val stateEmitter: LiveData<State> = _stateEmitter
-    val currentToken = loginRepository.readTokenCache()
+    val currentToken = loginRepository.readDeviceToken()
 
     @SuppressLint("CheckResult")
     fun login(username: String, password: String) {
@@ -29,4 +30,13 @@ class LoginViewModel(private val loginRepository: SleipRepository) : ViewModel()
                 }
             )
     }
+
+
+//    fun registerNewDevice(deviceToken: String){
+//        loginRepository.createDevice(deviceToken).subscribeBy(
+//            onSuccess ={ Log.i("TAG", "Device token was registered")},
+//            onError = {Log.i("TAG", "Device token not working") }
+//
+//        )
+//    }
 }

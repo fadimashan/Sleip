@@ -31,6 +31,9 @@
         <action
             android:id="@+id/action_nav_host_fragment_to_detailsPageFragment"
             app:destination="@id/detailsPageFragment" />
+        <action
+            android:id="@+id/action_nav_host_fragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -57,5 +60,57 @@
         <argument
             android:name="horseDetails"
             app:argType="se.mobileinteraction.sleip.entities.Horse" />
+        <action
+            android:id="@+id/action_detailsPageFragment_to_recordsDetailsFragment"
+            app:destination="@id/recordsDetailsFragment" />
+        <action
+            android:id="@+id/action_detailsPageFragment_to_videoRecordingFragment"
+            app:destination="@id/videoRecordingFragment" />
+        <action
+            android:id="@+id/action_detailsPageFragment_to_previewFragment"
+            app:destination="@id/previewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recordsDetailsFragment"
+        android:name="se.mobileinteraction.sleip.ui.records.RecordsDetailsFragment"
+        android:label="RecordsDetailsFragment" >
+        <argument
+            android:name="record_details"
+            app:argType="se.mobileinteraction.sleip.entities.RecordingResponse" />
+        <action
+            android:id="@+id/action_recordsDetailsFragment_to_analysisResultFragment"
+            app:destination="@id/analysisResultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/videoRecordingFragment"
+        android:name="se.mobileinteraction.sleip.ui.records.AddingNewVideoRecordingFragment"
+        android:label="VideoRecordingFragment" >
+        <argument
+            android:name="record_uri"
+            app:argType="string" />
+        <argument
+            android:name="horse_id"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/previewFragment"
+        android:name="se.mobileinteraction.sleip.ui.cameraXVideoRecorder.PreviewFragment"
+        android:label="preview_fragment"
+        tools:layout="@layout/preview_fragment" >
+        <action
+            android:id="@+id/action_previewFragment_to_videoRecordingFragment"
+            app:destination="@id/videoRecordingFragment" />
+        <argument
+            android:name="horse_id"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/analysisResultFragment"
+        android:name="se.mobileinteraction.sleip.ui.records.analysis.AnalysisResultFragment"
+        android:label="analysis_result_fragment"
+        tools:layout="@layout/analysis_result_fragment" >
+        <argument
+            android:name="video_analysis"
+            app:argType="se.mobileinteraction.sleip.entities.RecordingResponse" />
     </fragment>
 </navigation>

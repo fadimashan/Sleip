@@ -1,11 +1,9 @@
 object Versions {
-    const val androidGradle = "4.0.0-beta03"
+    const val androidGradle = "4.0.0"
     const val kotlinGradle = "1.3.70"
     const val fragmentVersion = "1.2.0"
     const val design = "28.0.0"
     const val karumiDexter = "5.0.0"
-    const val annotation = "1.1.0"
-
     const val appCompat = "1.1.0"
     const val constraintLayout = "2.0.0-beta4"
     const val detekt = "1.1.1"
@@ -17,11 +15,13 @@ object Versions {
     const val navigation = "2.2.0-rc02"
     const val rxJava = "2.2.14"
     const val rxAndroid = "2.1.1"
+    const val pickphotoview = "0.4.8"
     const val ChiliPhotoPicker = "0.3.1"
+    const val dexter = "5.0.0"
     const val rxKotlin = "2.4.0"
     const val koin = "2.1.3"
     const val androidxCoreKtx = "1.2.0"
-    const val simplemobiletools = "5.18.13"
+    const val betterVideoPlayer = "2.0.0-alpha01"
     const val material = "1.1.0-beta02"
     const val googleCloudStorage = "1.106.0"
     const val androidxCompat = "1.0.0"
@@ -36,8 +36,11 @@ object Versions {
     const val jsonKotlinSerialization = "0.20.0"
     const val androidOssPlugin = "0.9.5"
     const val androidOss = "16.0.2"
+    const val circularimageview = "3.2.0"
     const val rxpermissions = "0.10.2"
-
+    const val landscapeVideoCamera = "1.3.0"
+    const val exoplayer = "2.10.7"
+    const val workManager = "2.3.4"
     const val junit = "4.13-rc-1"
     const val testRunner = "1.1.0"
     const val testCore = "1.0.0"
@@ -72,7 +75,6 @@ object Deps {
     const val androidxCompat = "androidx.legacy:legacy-support-v4:${Versions.androidxCompat}"
     const val design = "com.android.support:design:${Versions.design}"
     const val karumiDexter = "com.karumi:dexter:${Versions.karumiDexter}"
-    const val annotation = "androidx.annotation:annotation:${Versions.annotation}"
 
     const val archLifecycle = "androidx.lifecycle:lifecycle-extensions:${Versions.archLifecycle}"
     const val navigationFragment =
@@ -90,15 +92,26 @@ object Deps {
         "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycleViewModel}"
     const val jsonKotlinSerialization =
         "org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Versions.jsonKotlinSerialization}"
+    const val circularimageview = "com.mikhaellopez:circularimageview:${Versions.circularimageview}"
     const val rxpermissions = "com.github.tbruyelle:rxpermissions:${Versions.rxpermissions}"
+    const val landscapeVideoCamera = "com.github.jeroenmols:LandscapeVideoCamera:${Versions.landscapeVideoCamera}"
+    const val exoplayerCore = "com.google.android.exoplayer:exoplayer-core:${Versions.exoplayer}"
+    const val exoplayerDash = "com.google.android.exoplayer:exoplayer-dash:${Versions.exoplayer}"
+    const val exoplayer = "com.google.android.exoplayer:exoplayer:${Versions.exoplayer}"
+    const val exoplayerUi = "com.google.android.exoplayer:exoplayer-ui:${Versions.exoplayer}"
+    const val workManager = "androidx.work:work-runtime-ktx:${Versions.workManager}"
 
 
     const val rxJava = "io.reactivex.rxjava2:rxjava:${Versions.rxJava}"
     const val rxKotlin = "io.reactivex.rxjava2:rxkotlin:${Versions.rxKotlin}"
     const val rxAndroid = "io.reactivex.rxjava2:rxandroid:${Versions.rxAndroid}"
 
+
+    const val pickphotoview = "com.werb.pickphotoview:pickphotoview:${Versions.pickphotoview}"
     const val ChiliPhotoPicker =
         "com.github.ChiliLabs:ChiliPhotoPicker:${Versions.ChiliPhotoPicker}"
+    const val dexter = "com.karumi:dexter:${Versions.dexter}"
+
 
     const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentVersion}"
     const val fragmentKtxTesting = "androidx.fragment:fragment-testing:${Versions.fragmentVersion}"
@@ -115,8 +128,8 @@ object Deps {
     const val koinViewModel = "org.koin:koin-androidx-viewmodel:${Versions.koin}"
     const val koinScope = "org.koin:koin-androidx-scope:${Versions.koin}"
     const val koinFragment = "org.koin:koin-androidx-fragment:${Versions.koin}"
-    const val simplemobiletools = "com.simplemobiletools:commons:${Versions.simplemobiletools}"
     const val androidxCoreKtx = "androidx.core:core-ktx:${Versions.androidxCoreKtx}"
+    const val betterVideoPlayer = "com.github.halilozercan:BetterVideoPlayer:${Versions.betterVideoPlayer}"
 
 
     const val junit = "junit:junit:${Versions.junit}"
@@ -144,7 +157,7 @@ object Deps {
 object Android {
     const val applicationId = "se.mobileinteraction.sleip"
     const val compileSdk = 29
-    const val minSdk = 24
+    const val minSdk = 26
     const val targetSdk = 29
     const val versionCode = 1
     const val versionName = "1.0"

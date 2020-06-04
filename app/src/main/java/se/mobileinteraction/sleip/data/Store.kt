@@ -28,6 +28,7 @@ class Store(
 
     @OptIn(ImplicitReflectionSerializer::class)
     fun <T : Any> readCache(key: String, clazz: KClass<T>): T? {
+
         return sharedPref.getString(key, null)?.let { serializer ->
             try {
                 json.parse(clazz.serializer(), serializer)

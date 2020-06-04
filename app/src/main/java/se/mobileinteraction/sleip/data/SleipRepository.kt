@@ -28,8 +28,16 @@ class SleipRepository(
         return api.getHorse(id).applyNetworkSchedulers()
     }
 
-    fun getRecordsList(id: Int):Single<List<Recording>>{
+    fun getRecordsList(id: Int):Single<List<RecordingResponse>>{
         return api.recordingList(id).applyNetworkSchedulers()
+    }
+
+
+       fun createDevice(device_token: String) {
+        cacheDeviceToken(RegistrationID(device_token))
+    }
+    fun cacheDeviceToken(deviceToken: RegistrationID) {
+        store.store(PREF_DEVICE_TOKEN, deviceToken, RegistrationID::class)
     }
 
     private fun cacheToken(token: TokenResponse) {
@@ -40,11 +48,16 @@ class SleipRepository(
         return store.readCache(PREF_LOGIN_TOKEN, TokenResponse::class)
     }
 
+    fun readDeviceToken(): RegistrationID?{
+        return  store.readCache(PREF_DEVICE_TOKEN,RegistrationID::class)
+    }
+
     fun remove() {
         store.remove(PREF_LOGIN_TOKEN)
     }
 
     companion object {
         const val PREF_LOGIN_TOKEN = "pref_login_token"
+        const val PREF_DEVICE_TOKEN = "pref_device_token"
     }
 }

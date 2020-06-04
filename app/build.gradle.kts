@@ -1,6 +1,9 @@
-apply(plugin = "com.google.android.gms.oss-licenses-plugin")
+import org.jetbrains.kotlin.config.AnalysisFlags.experimental
+
+//apply(plugin = "com.google.android.gms.oss-licenses-plugin")
 apply(plugin = "com.android.application")
 apply(plugin = "kotlin-android-extensions")
+apply(plugin = "com.google.gms.google-services")
 
 
 plugins {
@@ -29,6 +32,8 @@ android {
         testOptions {
             animationsDisabled = true
         }
+
+
     }
 
 
@@ -106,7 +111,7 @@ android {
         isWarningsAsErrors = true
         isCheckAllWarnings = true
         isAbortOnError = false
-        setLintConfig(file("../lint.xml"))
+        lintConfig = file("../lint.xml")
     }
 
     compileOptions {
@@ -119,6 +124,10 @@ android {
     }
 
     useLibrary("android.test.runner")
+
+    androidExtensions {
+        experimental
+    }
 }
 
 
@@ -127,7 +136,6 @@ dependencies {
     implementation(Deps.appCompat)
     implementation(Deps.constraintLayout)
     implementation(Deps.material)
-//    implementation(Deps.googleCloudStorage)
     implementation(Deps.design)
 
     implementation(Deps.okHttp)
@@ -139,11 +147,20 @@ dependencies {
     implementation(Deps.lifecycleExtensions)
     implementation(Deps.lifecycleViewModel)
     implementation(Deps.jsonKotlinSerialization)
-    implementation(Deps.annotation)
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0")
+    implementation("androidx.appcompat:appcompat:1.1.0")
+    implementation("androidx.constraintlayout:constraintlayout:1.1.3")
     kapt(Deps.glideAnnotation)
+
+    implementation ("androidx.camera:camera-core:1.0.0-alpha10")
+    implementation ("androidx.camera:camera-camera2:1.0.0-alpha10")
+    implementation ("androidx.camera:camera-lifecycle:1.0.0-alpha10")
+    implementation ("androidx.camera:camera-view:1.0.0-alpha08")
+    implementation ("androidx.camera:camera-extensions:1.0.0-alpha08")
+    implementation ("com.google.firebase:firebase-messaging:20.1.7")
+    implementation ("com.google.firebase:firebase-analytics:17.4.1")
 
     implementation(Deps.httpLogger)
 
@@ -158,27 +175,35 @@ dependencies {
     implementation(Deps.rxKotlin)
     implementation(Deps.rxAndroid)
     implementation(Deps.ChiliPhotoPicker)
-    implementation("com.squareup.picasso:picasso:2.71828")
+    implementation(Deps.pickphotoview)
+    implementation(Deps.dexter)
+
 
     implementation(Deps.koin)
     implementation(Deps.koinViewModel)
     implementation(Deps.koinScope)
     implementation(Deps.koinFragment)
-    implementation(Deps.simplemobiletools)
     implementation(Deps.androidxCoreKtx)
+    implementation(Deps.betterVideoPlayer)
 
     implementation(Deps.timber)
     implementation(Deps.androidOss)
+    implementation(Deps.landscapeVideoCamera)
+    implementation(Deps.exoplayerCore)
+    implementation(Deps.exoplayerDash)
+    implementation(Deps.exoplayer)
+    implementation(Deps.exoplayerUi)
+    implementation(Deps.workManager)
 
     implementation(Deps.paging)
     implementation(Deps.pagingrx)
     implementation(Deps.permissions)
     implementation(Deps.legacyPre)
-    implementation("com.mikhaellopez:circularimageview:3.2.0")
+    implementation(Deps.circularimageview)
     implementation(Deps.rxpermissions)
 
 
-            testImplementation(Deps.junit)
+    testImplementation(Deps.junit)
     testImplementation(Deps.mockk)
     testImplementation(Deps.okHttpMockServer)
     testImplementation(Deps.archTesting)
@@ -190,6 +215,5 @@ dependencies {
     androidTestImplementation(Deps.testRunner)
     androidTestImplementation(Deps.androidTestRule)
     androidTestImplementation(Deps.androidMockk)
-
 
 }

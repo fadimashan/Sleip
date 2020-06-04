@@ -1,10 +1,13 @@
 package se.mobileinteraction.sleip.data.api
 
+import io.reactivex.Observable
 import io.reactivex.Single
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import okhttp3.ResponseBody
 import retrofit2.http.*
 import se.mobileinteraction.sleip.entities.*
+
 
 interface SleipAPI {
 
@@ -15,11 +18,9 @@ interface SleipAPI {
 
     @POST("/devices/")
     fun createDevice(
-        @Query("registration_id") accessKey: String,
-        @Query("name") deviceName: String?,
-        @Query("active") active: Boolean?,
-        @Query("type") type: String
-    ): Single<Device>
+    @Body device: Device
+
+    ): Single<DeviceResponse>
 
 
     @GET("/horse")
@@ -28,7 +29,7 @@ interface SleipAPI {
 
     @POST("/horse/")
     fun createHorse(
-        @Body horse: CreateHorseBody
+            @Body horse: RequestBody
     ): Single<Horse>
 
     @GET("/horse/{id}/")
@@ -62,32 +63,19 @@ interface SleipAPI {
     @GET("/horse/{id}/recording/")
     fun recordingList(
         @Path("id") horseId: Int
-    ): Single<List<Recording>>
-
-
-    @GET("/recording/")
-    fun recList(
-    ): Single<Recording>
+    ): Single<List<RecordingResponse>>
 
     @POST("/recording/")
     fun createRec(
-        @Query("comment") comment: String?,
-        @Query("name") recName: String?,
-        @Query("video") video: String?,
-        @Query("horse") horseName: String?
-    ): Single<Recording>
-
-    @GET("/recording/{id}")
-    fun getRecordsList(
-        @Path("id") recId: Int
-    ): Single<List<Recording>>
+        @Body record: RequestBody
+    ): Single<RecordingResponse>
 
     @PUT("/recording/{id}")
     fun updateRec(
         @Path("id") recId: Int,
         @Query("comment") comment: String?,
         @Query("video") video: String?
-    ): Single<Recording>
+    ): Single<RecordingResponse>
 
     @PATCH("/recording/{id}")
     fun partialUpdateRec(
@@ -101,9 +89,4 @@ interface SleipAPI {
         @Path("id") recId: Int
     ): Single<ResponseBody>
 
-    @Multipart
-    @POST("/horse/")
-    fun uploadImage(
-        @Part image: MultipartBody.Part?
-    ): Single<UploadResponse>?
 }

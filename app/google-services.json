@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "799160899223",
+    "firebase_url": "https://sleip-e908c.firebaseio.com",
+    "project_id": "sleip-e908c",
+    "storage_bucket": "sleip-e908c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799160899223:android:c2e410d17f4df9f994bbd2",
+        "android_client_info": {
+          "package_name": "se.mobileinteraction.sleip.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "799160899223-s63ognvtfondvjkd4e4ahgbnou9p1cla.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbn9tMmVt8IwGG0h4xwG7Tf6ExqvBTNXY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "799160899223-s63ognvtfondvjkd4e4ahgbnou9p1cla.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "799160899223-frapaem439hckmnb7i28aeigqo5ro65n.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "se.mobileinteraction.sleip"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -3,16 +3,19 @@ package se.mobileinteraction.sleip.ui.mainFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.mikhaellopez.circularimageview.CircularImageView
 import se.mobileinteraction.sleip.R
 import se.mobileinteraction.sleip.entities.Horse
 import se.mobileinteraction.sleip.util.load
 
-class HorseAdapter(val onItemClick: (Horse) -> Unit) : RecyclerView.Adapter<HorseAdapter.HorseViewHolder>() {
+class HorseAdapter(val onItemClick: (Horse) -> Unit) :
+    RecyclerView.Adapter<HorseAdapter.HorseViewHolder>() {
 
-    private var list = mutableListOf<Horse>()
+     var list = mutableListOf<Horse>()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
@@ -29,21 +32,15 @@ class HorseAdapter(val onItemClick: (Horse) -> Unit) : RecyclerView.Adapter<Hors
 
     }
 
-    fun removeData(position: Int) {
-        list.removeAt(position)
-        notifyItemRemoved(position)
-    }
-
-    fun update(modelList: ArrayList<Horse>) {
-        list = modelList
-        notifyDataSetChanged()
+     fun removeWithSwap(viewHolder: RecyclerView.ViewHolder):Int {
+         return (list[viewHolder.adapterPosition]).id
     }
 
     override fun onBindViewHolder(holder: HorseViewHolder, position: Int) {
 
         val item = list[position]
 
-        holder.bind(item,onItemClick)
+        holder.bind(item, onItemClick)
     }
 
     class HorseViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -53,18 +50,26 @@ class HorseAdapter(val onItemClick: (Horse) -> Unit) : RecyclerView.Adapter<Hors
         val horseDesc = itemView.findViewById<TextView>(R.id.horse_desc)
         val horseImg = itemView.findViewById<CircularImageView>(R.id.img_horse)
 
-        fun bind(horse: Horse, onItemClick:(Horse) -> Unit) {
+        fun bind(horse: Horse, onItemClick: (Horse) -> Unit) {
             horseName.text = horse.name
             horseBirth.text = horse.date_of_birth
             horseDesc.text = horse.description
-            horse.image?.let { horseImg.load(it) }
+            horseImg.setImageDrawable(null)
+            if (horse.image.isNullOrEmpty()) {
+                horseImg.setImageResource(R.drawable.camera_large1)
+            } else {
+                horse.image?.let {
+                    horseImg.apply {
+                        load(it)
+                        DiskCacheStrategy.RESOURCE
 
+                    }
+                }
+            }
 
             itemView.setOnClickListener {
                 onItemClick(horse)
             }
-
-
         }
 
     }

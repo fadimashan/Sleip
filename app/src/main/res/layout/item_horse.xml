@@ -25,44 +25,42 @@
         android:id="@+id/horse_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingStart="30dp"
         android:text="@string/my_horse"
         android:textSize="20sp"
-        android:paddingStart="30dp"
         app:layout_constraintBottom_toBottomOf="@id/container"
         app:layout_constraintLeft_toRightOf="@id/img_horse"
-        app:layout_constraintTop_toTopOf="@id/container"/>
+        app:layout_constraintTop_toTopOf="@id/container" />
 
     <TextView
         android:id="@+id/horse_birth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingStart="30dp"
         android:text="@string/my_horse"
         android:textSize="20sp"
-        android:paddingStart="30dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/container"
         app:layout_constraintLeft_toRightOf="@id/img_horse"
-        app:layout_constraintTop_toTopOf="@id/container"/>
+        app:layout_constraintTop_toTopOf="@id/container" />
 
     <TextView
         android:id="@+id/horse_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingStart="30dp"
         android:text="@string/my_horse"
         android:textSize="20sp"
-        android:paddingStart="30dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/container"
         app:layout_constraintLeft_toRightOf="@id/img_horse"
-        app:layout_constraintTop_toTopOf="@id/container"/>
+        app:layout_constraintTop_toTopOf="@id/container" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_arrow_forward_ios_24"
-        app:layout_constraintBottom_toBottomOf="@id/container"
-        app:layout_constraintRight_toRightOf="@id/container"
-        app:layout_constraintTop_toTopOf="@id/container"/>
+   <ImageView
+       android:layout_width="match_parent"
+       android:layout_height="1dp"
+       android:src="@drawable/divider"
+       app:layout_constraintBottom_toBottomOf="parent"/>
 
 
 
