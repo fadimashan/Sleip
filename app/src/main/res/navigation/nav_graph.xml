@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    tools:ignore="UnusedNavigation"
+    app:startDestination="@id/splashFragment">
+
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="se.mobileinteraction.sleip.ui.splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_nav_host_fragment"
+            app:destination="@id/nav_host_fragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_host_fragment"
+        android:name="se.mobileinteraction.sleip.ui.mainFragment.MainHorsesListFragment"
+        android:label="main_horses_list_fragment"
+        tools:layout="@layout/main_horses_list_fragment" >
+        <action
+            android:id="@+id/action_nav_host_fragment_to_createHorseFragment"
+            app:destination="@id/createHorseFragment" />
+        <action
+            android:id="@+id/action_nav_host_fragment_to_detailsPageFragment"
+            app:destination="@id/detailsPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="se.mobileinteraction.sleip.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_nav_host_fragment"
+            app:destination="@id/nav_host_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createHorseFragment"
+        android:name="se.mobileinteraction.sleip.ui.newHorse.CreateHorseFragment"
+        android:label="CreateHorseFragment">
+        <action
+            android:id="@+id/action_horseDetailsFragment_to_nav_host_fragment"
+            app:destination="@id/nav_host_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsPageFragment"
+        android:name="se.mobileinteraction.sleip.ui.details.DetailsPageFragment"
+        android:label="details_page_fragment"
+        tools:layout="@layout/details_page_fragment" >
+        <argument
+            android:name="horseDetails"
+            app:argType="se.mobileinteraction.sleip.entities.Horse" />
+    </fragment>
+</navigation>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="3dp"
+    android:padding="12dp">
+
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/img_horse"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/camera_large"
+        app:civ_border_color="#EEEEEE"
+        app:civ_border_width="1dp"
+        app:civ_shadow="true"
+        app:civ_shadow_radius="10"
+        app:layout_constraintBottom_toBottomOf="@id/container"
+        app:layout_constraintLeft_toLeftOf="@id/container"
+        app:layout_constraintTop_toTopOf="@id/container" />
+
+    <TextView
+        android:id="@+id/horse_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/my_horse"
+        android:textSize="20sp"
+        android:paddingStart="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/container"
+        app:layout_constraintLeft_toRightOf="@id/img_horse"
+        app:layout_constraintTop_toTopOf="@id/container"/>
+
+    <TextView
+        android:id="@+id/horse_birth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/my_horse"
+        android:textSize="20sp"
+        android:paddingStart="30dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/container"
+        app:layout_constraintLeft_toRightOf="@id/img_horse"
+        app:layout_constraintTop_toTopOf="@id/container"/>
+
+    <TextView
+        android:id="@+id/horse_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/my_horse"
+        android:textSize="20sp"
+        android:paddingStart="30dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/container"
+        app:layout_constraintLeft_toRightOf="@id/img_horse"
+        app:layout_constraintTop_toTopOf="@id/container"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+        app:layout_constraintBottom_toBottomOf="@id/container"
+        app:layout_constraintRight_toRightOf="@id/container"
+        app:layout_constraintTop_toTopOf="@id/container"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
