@@ -1,1 +1,3 @@
-# Android_Sleip# PhotoGalleryAndroid
+# Android_Sleip
+
+Sleip App is an application which analyses the performance of race horses, limited to a group of users registered with the company (client). The user can create cards in a list for each horse he/she would like to include. The card provides details about the horse. Users are also able to film the horse when moving (landscape and 4K) and upload it to the server. The user will receive a notification when the company conducts analysis of the horse's movements and when the analysis is finished, with complete details/results and diagrams of the horse's movements. I especially enjoyed working with Rest API and I created my own class for cameraX and forced it to operate in landscape mode and 4K, which is the opposite of how I previously used ready libraries for this type of function.
